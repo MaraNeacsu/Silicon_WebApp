@@ -4,103 +4,94 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Silicon_WebApp.ViewModels;
+using System.Diagnostics.Eventing.Reader;
 
-namespace Silicon_WebApp.Controllers;
-
-public class AuthController : Controller
+namespace Silicon_WebApp.Controllers
 {
-    private readonly UserManager<UserEntity> _userManager;
-    private readonly SignInManager<UserEntity> _signInManager;
-    private readonly ApplicationContext _context;
-
-    // Corrected constructor
-    public AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, ApplicationContext context)
+    public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, ApplicationContext context) : Controller
     {
-        _userManager = userManager;
-        _signInManager = signInManager;
-        _context = context;
-    }
-
-    public IActionResult SignUp()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> SignUp(SignUpViewModel model)
-    {
-        if (ModelState.IsValid)
+        private readonly UserManager<UserEntity> _userManager = userManager;
+        private readonly SignInManager<UserEntity> _signInManager = signInManager;
+        private readonly ApplicationContext _context = context;
+        [Route("/signUp")]
+        public IActionResult SignUp()
         {
-            // Check if user exists before attempting to create a new one
-            if (await _context.Users.AnyAsync(x => x.Email == model.Email))
-            {
-                ViewData["StatusMessage"] = "User with the same email already exists";
-                return View(model);
-            }
+            return View();
+        }
 
-            // Correct variable declaration and usage
-            var user = new UserEntity
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Email = model.Email,
-                UserName = model.Email
-            };
+        [HttpPost]
+        [Route("/signup")]
 
-            
-            var result = await _userManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
+        public async Task<IActionResult> SignUp(SignUpViewModel model)
+        {
+            if (ModelState.IsValid)
             {
-               
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                return LocalRedirect("/");
-            }
-            else
-            {
-               
-                foreach (var error in result.Errors)
+                if (!await _context.Users.AnyAsync(x => x.Email == model.Email))
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    var userEntity = new UserEntity
+                    {
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Email = model.Email,
+                        UserName = model.Email
+                    };
+
+                    if ((await _userManager.CreateAsync(userEntity, model.Password)).Succeeded)
+                    {
+                        if ((await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false)).Succeeded)
+                        {
+                            return LocalRedirect("/");
+                        }
+                        else
+                        {
+                            return LocalRedirect("/sign in");
+                        }
+                    }
+                    else
+                    {
+                        ViewData["StatusMessage"] = "Something went wrong. Try again later";
+                    }
+                }
+                else
+                {
+                    ViewData["StatusMessage"] = "User with the same email already exists";
                 }
             }
+            return View(model);
         }
 
-        return View(model);
-    }
 
-    public IActionResult SignIn(string returnUrl)
-    {
-        ViewData["ReturnUrl"] = returnUrl ?? "/";
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> SignIn(SignInViewModel model, string returnUrl)
-    {
-        returnUrl = returnUrl ?? "/";
-
-        if (ModelState.IsValid)
+        [Route("/signin")]
+        public IActionResult SignIn(string returnUrl)
         {
-            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.IsPersistent, lockoutOnFailure: false);
-            if (result.Succeeded)
-            {
-                return LocalRedirect(returnUrl);
-            }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                return View(model);
-            }
+            ViewData["ReturnUrl"] = returnUrl ?? "/";
+            return View();
         }
 
-        ViewData["ReturnUrl"] = returnUrl;
-        return View(model);
-    }
+        [HttpPost]
+        [Route("/signin")]
+        public async Task<IActionResult> SignIn(SignInViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                        if((await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.IsPersistent, false)).Succeeded)
+                
+                        return LocalRedirect(returnUrl);
+                        
+                   
+            }
+               
 
-    public async Task<IActionResult> SignOut()
-    {
-        await _signInManager.SignOutAsync();
-        return RedirectToAction("Home", "Default");
+            ViewData["ReturnUrl"] = returnUrl;
+            ViewData["StatusMessage"] = "Incorrect email or password";           
+            return View(model);
+        }
+        [Route("/signout")]
+        public  new async Task<IActionResult> SignOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Home", "Default");
+        }
     }
 }
 

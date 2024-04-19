@@ -7,6 +7,6 @@ namespace Infrastructure.Contexts
 {
     public class ApplicationContext(DbContextOptions<ApplicationContext> options) : IdentityDbContext<UserEntity>(options)
     {
-        public DbSet<AdressEntity> Adresses { get; set; } = null!;
+        public DbSet<AddressEntity> Addresses { get; set; } = null!;
     }
 }

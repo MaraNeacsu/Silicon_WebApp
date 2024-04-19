@@ -11,11 +11,7 @@ public class UserEntity:IdentityUser
 
    public string? Bio { get; set; }
 
-    public int? AdressId { get; set; }
-    public AdressEntity? Adress { get; set; }
-
-
-
+    public AddressEntity? Address { get; set; }
 }
 
 
