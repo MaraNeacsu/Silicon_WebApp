@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     var user = await UserManager.GetUserAsync(User);
 }
 
@@ -9,20 +7,19 @@
     <section class="account-profile">
         <div class="profile">
             <div class="profile-image">
-                <img src="~/images/uploads/profiles/@user.ProfileImage" alt="@user.FirstName @user.LastName" />
+                <img src="~/Images/uploads/profiles/avatar.jpg" alt="Profile picture of @user.FirstName @user.LastName" />
                 <form enctype="multipart/form-data" method="post" asp-action="UploadProfileImage" asp-controller="Account">
-                  
-                    <input id="fileUploader" type="file" name="hide" hidden />
+                    <input id="fileUploader" type="file" name="file" style="display: none;" onchange="this.form.submit()" />
                     <label for="fileUploader" class="btn btn-circle btn-circle-sm">
-                        <i class="fa-regular fa-refresh"></i>
+                        <i class="fa-regular fa-refresh"></i> Change Picture
                     </label>
                 </form>
             </div>
             <div class="profile-info">
                 <h3 class="display-name">@user.FirstName @user.LastName</h3> 
-
                 <p>@user.Email</p>
             </div>
         </div>
     </section>
 }
+

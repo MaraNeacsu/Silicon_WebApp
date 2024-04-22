@@ -1,10 +1,10 @@
-﻿using Infrastructure.Contexts;
+﻿
+using Infrastructure.Contexts;
 using Infrastructure.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Silicon_WebApp.ViewModels;
-using System.Diagnostics.Eventing.Reader;
 
 namespace Silicon_WebApp.Controllers
 {
@@ -13,7 +13,9 @@ namespace Silicon_WebApp.Controllers
         private readonly UserManager<UserEntity> _userManager = userManager;
         private readonly SignInManager<UserEntity> _signInManager = signInManager;
         private readonly ApplicationContext _context = context;
-        [Route("/signUp")]
+
+        [HttpGet]
+        [Route("/signup")]
         public IActionResult SignUp()
         {
             return View();
@@ -21,7 +23,6 @@ namespace Silicon_WebApp.Controllers
 
         [HttpPost]
         [Route("/signup")]
-
         public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
             if (ModelState.IsValid)
@@ -36,35 +37,44 @@ namespace Silicon_WebApp.Controllers
                         UserName = model.Email
                     };
 
-                    if ((await _userManager.CreateAsync(userEntity, model.Password)).Succeeded)
+                    var result = await _userManager.CreateAsync(userEntity, model.Password);
+                    if (result.Succeeded)
                     {
-                        if ((await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false)).Succeeded)
+                        await _userManager.AddToRoleAsync(userEntity, "DefaultRole"); // Add user to a role if necessary
+                        var signInResult = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+                        if (signInResult.Succeeded)
                         {
                             return LocalRedirect("/");
                         }
                         else
                         {
-                            return LocalRedirect("/sign in");
+                            ModelState.AddModelError(string.Empty, "Unable to sign in.");
+                            return View(model);
                         }
                     }
                     else
                     {
-                        ViewData["StatusMessage"] = "Something went wrong. Try again later";
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                        return View(model);
                     }
                 }
                 else
                 {
-                    ViewData["StatusMessage"] = "User with the same email already exists";
+                    ModelState.AddModelError("Email", "User with the same email already exists");
+                    return View(model);
                 }
             }
             return View(model);
         }
 
-
+        [HttpGet]
         [Route("/signin")]
-        public IActionResult SignIn(string returnUrl)
+        public IActionResult SignIn(string returnUrl = "/")
         {
-            ViewData["ReturnUrl"] = returnUrl ?? "/";
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
@@ -72,20 +82,24 @@ namespace Silicon_WebApp.Controllers
         [Route("/signin")]
         public async Task<IActionResult> SignIn(SignInViewModel model, string returnUrl)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                        if((await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.IsPersistent, false)).Succeeded)
-                
-                        return LocalRedirect(returnUrl);
-                        
-                   
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.IsPersistent, false);
+                if (result.Succeeded)
+                {
+                    return LocalRedirect(returnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Incorrect email or password.");
+                    return View(model);
+                }
             }
-               
 
-            ViewData["ReturnUrl"] = returnUrl;
-            ViewData["StatusMessage"] = "Incorrect email or password";           
             return View(model);
         }
+
         [Route("/signout")]
         public  new async Task<IActionResult> SignOut()
         {
@@ -94,4 +108,3 @@ namespace Silicon_WebApp.Controllers
         }
     }
 }
-

@@ -27,7 +27,7 @@
                             <div class="bestseller">Best Seller</div>
                         }
                         <button class="btn btn-circle bookmark"><i class="fa-regular fa-bookmark"></i></button>
-                        <img src="~/images/courses/@course.Image" alt="@course.Title" />
+                        <img src="~/Images/courses/" alt="@course.Title" />
 
                     <div class="content">     
 
@@ -50,10 +50,12 @@
 
                                     <i class="fa-regular fa-clock"></i>@course.Hours hours
                                 </div>
-                            <div class="likes">
-                                    <i class="fa-regular fa-thumbs-up"></i> @course.LikesInProcent(@course.LikesInNumbers)
+                                <div class="likes">
+                                    <i class="fa-regular fa-thumbs-up"></i> @course.LikesInProcent @course.LikesInNumbers
+                                </div>
+
                                 
-                            </div>
+                            
                             </div>
                     </div>
 

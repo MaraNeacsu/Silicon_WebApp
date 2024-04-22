@@ -118,10 +118,7 @@ public class AccountController(UserManager<UserEntity> userManager, ApplicationC
 
         try
         {
-            if (user.Address == null)
-            {
-                user.Address = new AddressEntity();
-            }
+            user.Address ??= new AddressEntity();
 
             user.Address.AddressLine_1 = model.Address!.AddressLine_1;
             user.Address.AddressLine_2 = model.Address!.AddressLine_2;
