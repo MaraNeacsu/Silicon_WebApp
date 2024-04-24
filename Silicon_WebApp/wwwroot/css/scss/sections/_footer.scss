@@ -1,0 +1,33 @@
+
+footer {
+    padding: 20px 0;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container-footer img {
+    width: 20px;
+    height: auto;
+    background-color: #EFF2FC;
+    color: #33354D;
+}
+
+.container-footer h6 {
+    margin-top: 20px;
+    color: #9397AD;
+    font-size: 10px;
+    text-align: center;
+}

@@ -1,0 +1,144 @@
+header {
+    padding: 15px 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #33354d;
+}
+
+.btn-switch,
+.account-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-gray {
+    padding: 0 10px;
+    text-decoration: none;
+    background-color: #9397ad;
+    color: #33354d;
+}
+
+.btn-theme {
+    padding: 0 10px;
+    text-decoration: none;
+    color: #f3f6ff;
+    background-color: #4c82f7;
+}
+
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+}
+
+.login-container h2 {
+    margin-bottom: 10px;
+    color: #0B0F19;
+}
+
+.login-container p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.login-container a {
+    color: #5c6bc0;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.remember-me label {
+    margin-left: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5c6bc0;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3949ab;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 20px;
+}
+
+
+h6 span {
+    display: block; /* This will make each span behave like a div and take up the full width available */
+}
+
+h6 span:first-child {
+    margin-bottom: 0.5em; /* Adds a little space between the two spans, adjust as necessary */
+}
+
+
+h6 {
+    color: #9397ad;
+    font-size: 10px;
+    text-align: center;
+}

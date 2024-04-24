@@ -1,0 +1,53 @@
+header {
+    padding: 15px 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #33354d;
+}
+
+.btn-switch,
+.account-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-gray {
+    padding: 0 10px;
+    text-decoration: none;
+    background-color: #9397ad;
+    color: #33354d;
+}
+
+.btn-gray:hover {
+    background-color: #6e718c;
+}
+
+.btn-theme {
+    padding: 0 10px;
+    text-decoration: none;
+    color: #f3f6ff;
+    background-color: #4c82f7;
+}

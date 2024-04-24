@@ -1,0 +1,227 @@
+
+header {
+    padding: 15px 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #33354d;
+}
+
+.btn-switch,
+.account-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-gray {
+    padding: 0 10px;
+    text-decoration: none;
+    background-color: #9397ad;
+    color: #33354d;
+}
+
+.btn-gray:hover {
+    background-color: #6e718c;
+}
+
+.btn-theme {
+    padding: 0 10px;
+    text-decoration: none;
+    color: #f3f6ff;
+    background-color: #4c82f7;
+}
+
+.btn-theme:hover {
+    background-color: #3b6cb5;
+}
+
+
+
+
+
+
+
+
+
+.container-sidebar {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.user-profile .user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-name,
+.user-email {
+    margin: 0;
+    color: #333;
+}
+
+.user-nav .nav-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.user-nav .nav-item {
+    padding: 10px 0;
+}
+
+.user-nav .nav-link {
+    color: #6366F1;
+    text-decoration: none;
+}
+
+.user-nav .nav-link.active {
+    font-weight: bold;
+}
+
+.main-content {
+    flex: 3;
+    padding: 20px;
+}
+
+.section-title {
+    margin-top: 0;
+}
+
+.account-info {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.basic-info,
+.address-info {
+    margin-bottom: 30px;
+}
+
+.basic-info h3,
+.address-info h3 {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.form-actions {
+    text-align: left;
+}
+
+.form-actions button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #6366F1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-actions button:hover {
+    background-color: #3949ab;
+}
+
+
+
+footer {
+    padding: 20px 0;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container-footer img {
+    width: 20px;
+    height: auto;
+    background-color: #eff2fc;
+    color: #33354d;
+}
+
+
+
+h6 span {
+    display: block;
+}
+
+h6 span:first-child {
+    margin-bottom: 0.5em;
+}
+
+
+h6 {
+    color: #9397ad;
+    font-size: 10px;
+    text-align: center;
+}

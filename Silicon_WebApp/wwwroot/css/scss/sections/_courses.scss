@@ -1,0 +1,213 @@
+
+header {
+    padding: 15px 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #33354d;
+}
+
+.btn-switch,
+.account-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.horizontal-section {
+    display: flex;
+}
+
+.horizontal-section p:not(:last-child) {
+    margin-right: 20px;
+    margin-left: 80px;
+}
+
+.header-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-form {
+    justify-self: end;
+    display: inline-block;
+}
+
+.search-form {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 5px 10px;
+    height: auto;
+    display: flex;
+    width: auto;
+    border-radius: 5px;
+}
+
+.container-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-right: 60px;
+    padding: 5px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin-left: 60px;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    color: #33354d;
+    font-size: 1.2rem;
+}
+
+.card h3 {
+    color: #9397ad;
+    font-size: 0.9rem;
+}
+
+.card h4 {
+    color: #4c82f7;
+    font-size: 0.8rem;
+}
+
+.card h5 {
+    color: #9397ad;
+    font-size: 0.5rem;
+}
+
+.card p {
+    display: flex;
+    align-items: center;
+    color: #9397ad;
+    font-size: 0.5rem;
+    align-items: center;
+    margin-top: auto;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.icon {
+    width: 15px;
+    height: auto;
+}
+
+.banner .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f3f6ff;
+    margin-top: 40px;
+    padding: 20px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.banner .container img {
+    width: 50%;
+    height: auto;
+}
+
+.banner .container .text-group {
+    display: block;
+    flex-direction: column;
+}
+
+.btn-work {
+    color: #fff;
+    background-color: #007bff;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: lighter;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn.work:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    padding: 20px 0;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container-footer img {
+    width: 20px;
+    height: auto;
+    background-color: #eff2fc;
+    color: #33354d;
+}
+
+.container-footer h6 {
+    margin-top: 20px;
+    color: #9397ad;
+    font-size: 10px;
+    text-align: center;
+}
+
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    max-width: 100%;
+    margin: auto;
+}

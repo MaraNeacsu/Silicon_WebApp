@@ -1,0 +1,74 @@
+.showcase .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+.showcase .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.showcase .brands {
+    display: flex;
+    gap: 10px;
+}
+
+.showcase {
+    position: relative;
+}
+
+.showcase .background {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 65%;
+    height: 150%;
+    object-fit: inherit;
+    z-index: -1;
+    margin-top: 120px;
+}
+
+h1 {
+    margin-top: 100px;
+    font-size: 40px;
+    font-weight: 800;
+    font-family: sans-serif;
+    color: #33354d;
+    margin-bottom: 20px;
+    margin-right: 40px;
+}
+
+h1 .new-line {
+    display: block;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #33354d;
+    margin-bottom: 20px;
+}
+
+h6 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #33354d;
+    margin-bottom: 10px;
+}
+
+.btn-theme-s {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #f3f6ff;
+    background-color: #4c82f7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}

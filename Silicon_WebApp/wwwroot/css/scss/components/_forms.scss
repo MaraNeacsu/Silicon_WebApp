@@ -1,0 +1,109 @@
+textarea,
+select,
+input:not([type="checkbox"]){
+    min-width:360px;
+    font-size:16px;
+    font-family:"manrope";
+    font-weight:400!important;
+    padding: 10px 16px;
+    border-radius:8px;
+    border:1px solid var(--color-gray-400);
+
+    &::placeholder{
+        opacity:0.5;
+    }
+}
+
+.input-search-group{
+    position:relative;
+
+
+    input{
+        position:relative;
+        padding-right:40px;
+    }
+
+    i{
+        position:absolute;
+        top:14px;
+        right:1rem;
+    }
+}
+
+.select{
+    position:relative;
+    min-width:300px;
+  background-repeat: no-repeat;
+  background-position:right 10px center;
+  background-size: 16px;
+  
+
+  .selected{
+
+      padding:8px 16px;
+      border-radius:8px;
+      border:1px solid var(--color-gray-400);
+      cursor:pointer;
+  }
+
+  .select-options{
+
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      z-index:10;
+      background-color:var(--color-white);
+      border:1px solid vae(--color-gray-400);
+
+  }
+
+  .option{
+      padding:10px;
+      cursor:pointer;
+  }
+
+  .option:hover{
+        background-color:var(--color-gray-400);
+    }
+}
+
+input[typr=checkbox]{
+    height:20px;
+    width:20px;
+    margin:0;
+}
+
+form{
+    width:100%;
+    display:grid;
+    font-size:16px;
+    font-weight:400!important;
+
+    .input-group{
+        display:grid;
+    }
+
+    .input{
+        padding:16px;
+    }
+    .checkbox-group{
+        input[type=checkbox]{
+            margin-right:10px;
+        }
+    }
+    button{
+        font-size:16px;
+        font-weight:400!important;
+        width:100%;
+    }
+
+
+    .field-validate-error{
+        font-size:14px;
+        color:var(--color-danger-dark);
+        font-weight:400!important;
+        padding:2px 5px;
+    }
+}

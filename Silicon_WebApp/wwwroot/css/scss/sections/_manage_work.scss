@@ -1,0 +1,32 @@
+container-content {
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    flex: 1;
+}
+
+.list-container {
+    flex: 1;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.list-container li {
+    margin-bottom: 10px;
+}
+
+.btn-learn {
+    margin-top: 40px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #6366F1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-learn i {
+    margin-left: 5px;
+}

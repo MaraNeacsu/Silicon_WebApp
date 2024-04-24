@@ -1,0 +1,47 @@
+
+.container-testimonial {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 20px;
+    position: relative;
+    background-color: #EFF2FC;
+    margin: 40px 0;
+    align-items: center;
+}
+
+.left-column {
+    flex: 1;
+    margin-right: 20px;
+    margin-left: 60px;
+}
+
+.left-column img {
+}
+
+.group {
+    top: -4;
+    left: 0;
+    position: absolute;
+    margin-left: 120px;
+    margin-bottom: 60px;
+}
+
+.right-column {
+    flex: 2;
+    margin-left: 240px;
+}
+
+.right-column h2 {
+    margin-top: 0;
+}
+
+.store {
+    margin-bottom: 20px;
+}
+
+.rating img {
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+}
